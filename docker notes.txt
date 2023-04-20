@@ -1,0 +1,291 @@
+docker client: performs docker build pull and run operations to building communication with in a docker host
+
+Docker host: 
+•	Components contains Docker Daemon, Container and images.
+•	Images will be the kind of metadata for the applications which are the containerized in the container.
+•	The docker Daemon build a connection with Registry.
+
+Regisrty:
+Component will be storing the Docker images.
+
+What is the architecture of Docker?
+Docker architecture. Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon.
+
+docker life cycle
+The complete lifecycle of a docker container revolves around five phases: Create phase. Running phase. Paused phase/unpause phase.
+
+Create a Container Commands:
+1.	Syntax:
+  Docker run --name <container name> -d -p host port number: guest port number <image name>
+•	d   means detach mode
+•	p   means port forwarding
+note: docker run=search + pull + create
+
+Basic Container related commands:
+       
+1.	To list all the running containers
+        docker ps(process status)
+2.	To list all running containers and including stopped
+         docker ps -a
+3.	To show only container id
+              docker ps -a -q
+4.	To find all details about a docker container
+          docker inspect <container id/name>
+5.	To navigate inside the container
+          docker exec -it <container id/ name>/bin/bash 
+         it means interactive mode
+6.	To see the logs of an container
+          docker logs <container id /name>
+7.	To stop the container
+             docker stop <container id /name>
+8.	To start the container
+             docker start <container id/name>
+9.	To show docker disk usage
+            docker system df
+10.	To display live stream of containers resource usage statics
+             docker stats --no-stream
+11.	To delete a single running container
+             docker rm <container id/name> -f
+12.	To delete all running containers at a time
+             docker rm $(docker ps -a -q) -f
+
+
+BASIC IMAGES RELATED COMMANDS:
+          
+13.	To list all images available in our local system
+              docker images
+14.	To search images on docker hub
+              docker search <image name>
+15.	To download any image from docker hub
+                          docker pull <image name>
+16.	To show only image id
+                docker images -q
+17.	To see the history of an image
+               docker history <image id /name>
+18.	To remove single docker image in our local system
+               docker rmi <image id/name>
+19.	To remove all docker image in our local system at a time
+               docker rmi -f $(docker images)
+Now open docker server terminal and type like below:
+                  
+docker exec -it <container id/ name>/bin/bash 
+
+Docker directives are instructions used in Dockerfile to build Docker images. Here are some of the most commonly used directives:
+
+FROM - specifies the base image for the Docker image being built.
+RUN - executes a command in the Docker image during the build process.
+COPY - copies files or directories from the host machine to the Docker image.
+ADD - similar to COPY, but can also handle URLs and unpack archives.
+ENV - sets environment variables in the Docker image.
+EXPOSE - documents the ports on which the Docker image listens.
+CMD - specifies the default command to run when the Docker container starts.
+ENTRYPOINT - sets the default executable for the Docker container.
+ARG - declares variables that can be passed at build time.
+WORKDIR - sets the working directory for commands in the Docker image.
+LABEL - sets metadata for the Docker image. This can include information such as the maintainer of the image, a description of the image, and a version number.
+USER - specifies the user that the Docker container should run as when started.
+VOLUME - creates a mount point for a volume to be used by the Docker container.
+HEALTHCHECK - specifies a command to run to check the health of the Docker container.
+ONBUILD - specifies a command to run when the Docker image is used as a base image for another image.
+STOPSIGNAL - specifies the signal to send to the container when it needs to be stopped.
+
+docker file:A Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. Docker uses these instructions to automate the creation of a Docker image, which can then be used to run a Docker container
+create a dockerfile by using Vi editor. file name should be Dockerfile (D capital)
+example of a dockerfile.
+# Specify the base image
+FROM ubuntu:20.04
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the files from the host to the container
+COPY . .
+
+# Install any required dependencies
+RUN apt-get update && apt-get install -y python3
+
+# Specify the command to run when the container starts
+CMD ["python3", "app.py"]
+
+and then type these commands
+docker build -t myimage .
+docker run -it --rm myimage
+
+
+====================================================================================
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx (Docker Inc., v0.8.2)
+  compose*    Docker Compose (Docker Inc., v2.5.0)
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+==================================================================================================================
+
+docker cheatsheeet
+
+Docker Commands:
+Docker pull: Pulls an image or a repository from a registry.
+
+docker pull <image-name>
+
+Docker push: Pushes an image or a repository to a registry.
+
+docker push <image-name>
+
+Docker images: Show a list of all the images on the local system.
+
+docker images
+
+Docker rmi: Removes one or more images.
+
+docker rmi <image-name>
+
+Docker build: Build and tag an image from a Dockerfile.
+
+docker build [OPTIONS] PATH | URL |
+
+docker build -t <image_name> .
+
+Docker run: Runs a command in a new container. assign it a name and map a port. start container in background with -d option.
+
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+docker run -d --name <container-name> -p 80:80 <image-name>
+
+Docker start: Starts one or more stopped containers.
+
+docker start <container-name>
+
+Docker stop: Stops one or more running containers.
+
+docker stop <container-name>
+
+Docker exec: Runs a command in a running container and go inside a container.
+
+docker exec -it <container-name or ID> bash
+
+Docker rm: Removes one or more containers.
+
+docker rm <container-name or ID>
+
+Docker ps: It shows list of all running containers.
+
+docker ps
+
+Docker ps -a: It shows a list of all containers.
+
+docker ps -a
+
+Docker logs: Fetches the logs of a container.
+
+docker logs <container-name or ID>
+
+Docker inspect: Returns low-level information on a container or image.
+
+docker inspect <container-name or ID>
+
+Docker Port: Show mapped ports of container.
+
+docker port <container-name or ID>
+
+Docker Top: Lists the processes running inside the container.
+
+docker top <container-name or ID>
+
+Docker Volume
+Docker volume create: Create a volume
+
+docker volume create <volume-name>
+
+Docker volume ls : List volumes
+
+docker volume ls
+
+Docker volume inspect : Display detailed information on one or more volumes
+
+docker volume inspect <volume-name>
+
+Docker volume rm : Remove one or more volumes
+
+docker volume rm <volume-name>
+
+Docker volume prune : Remove all unused volumes
+
+docker volume prune
+
+Docker Compose:
+Docker-compose up: Create and start containers
+
+docker-compose up
+
+Docker-compose ps: List containers
+
+docker-compose ps
+
+Docker-compose down: Stop and remove containers, networks, images, and volumes
+
+docker-compose down
+
+Docker-compose logs: Show logs
+
+docker-compose logs <service>
+
+
+
+
+
