@@ -1,0 +1,6 @@
+Types of servers
+1.Physical servers:
+
+2. virtualisation
+3.container technology
+

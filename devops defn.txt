@@ -1,0 +1,88 @@
+1.What is DevOps in simple words?
+DevOps is the combination of cultural philosophies, practices, and tools that increases an organization's ability to deliver applications and services at high velocity.
+
+2.Before DevOps	               vs                 After DevOps
+Miscommunication Between Dev and Ops Teams	    Improved Collaboration
+Absence of DBAs in Release Cycles	                Collaborative Customer Feedback and Optimization
+Haphazard Code Execution	                      Speedy Execution
+Delayed Software Deployments	                      Rapid Delivery
+Constant Monitoring of Application Maintenance and Performance	 Sustained Software Development 
+Operational Costs						    Reduced Costs
+Lack of Scope for Innovation	                      Improved innovation
+Low Failure Recovery Rate	                      Reduced outages
+Lack of Security	                                  Security Integration (DevSecOps)
+No scope for Continuous Integration	                Continuous Integration
+
+3. what is jenkins
+ans. Jenkins is an open source automation server. It helps automate the parts of software development related to building, testing, and deploying, facilitating continuous integration and continuous delivery.
+
+4. what is maven
+ans.Maven is a popular open-source build tool developed by the Apache Group to build, publish, and deploy several projects at once for better project management. The tool provides allows developers to build and document the lifecycle framework.
+
+5.what is docker
+ans.Docker is an open-source containerization platform that allows developers to package an application and its dependencies into a lightweight, portable container. A container is a self-contained executable package that includes everything needed to run an application, including the code, runtime, libraries, system tools, and settings.
+
+6.what is ansible
+ans.Ansible is an open-source configuration management, deployment, and orchestration tool that enables IT professionals to automate tasks such as application deployment, configuration management, and infrastructure provisioning. 
+
+7.what is terraform
+ans. Terraform is an open-source infrastructure as code (IaC) tool developed by HashiCorp. It enables developers to manage infrastructure resources, such as virtual machines, storage accounts, and networks, using a high-level configuration language called HashiCorp Configuration Language (HCL).
+
+8.what is k8s
+ans. Kubernetes (often abbreviated as "K8s") is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It was originally developed by Google and is now maintained by the Cloud Native Computing Foundation (CNCF).
+
+9. what is aws
+ans. AWS (Amazon Web Services) is a cloud computing platform provided by Amazon that offers a wide range of cloud-based services, including compute, storage, databases, analytics, machine learning, and more. It enables organizations to build, deploy, and manage applications and services in the cloud, using a flexible and scalable infrastructure.
+
+10. what is s3
+ans. Amazon S3 (Simple Storage Service): A highly scalable object storage service that can be used to store and retrieve any amount of data from anywhere on the web.
+
+11.what is ec2
+ans. Amazon EC2 (Elastic Compute Cloud): A web service that provides resizable compute capacity in the cloud, making it easy to scale applications and workloads up or down based on demand.
+
+12.what is vpc
+ans.  VPC (Virtual Private Cloud) is a service that enables users to create a logically isolated network in the cloud. VPC provides a secure and flexible way to deploy and manage virtual machines, containers, and other resources within a private and isolated network.
+
+13.what is iam
+ans.  IAM (Identity and Access Management) is a service that enables users to manage access to AWS resources securely. IAM provides a centralized way to control access to AWS resources, including services and APIs, by defining permissions and policies for individual users and groups.
+
+14.what is SNS
+ans. SNS (Simple Notification Service) is a fully managed messaging service that enables users to send and receive messages between distributed systems and microservices, mobile devices, and other endpoints.
+
+15.what is autoscaling
+ans. Auto Scaling is a service that enables users to automatically adjust the capacity of their EC2 instances based on demand. Auto Scaling ensures that the number of EC2 instances running is always proportional to the demand, allowing users to scale their applications seamlessly and efficiently.
+
+16. what is ALB
+ans. ALB (Application Load Balancer) is a service that enables users to distribute incoming traffic across multiple targets, such as EC2 instances, containers, and IP addresses, based on application-level routing rules.
+
+17.what is git
+ans. Git is a version control system used for tracking changes in computer files. It is generally used for source code management in software development. Git is used to tracking changes in the source code. The distributed version control tool is used for source code management.
+
+18.what is github
+ans. GitHub is a code hosting platform for collaboration and version control. GitHub lets you (and others) work together on projects.
+
+19.what is linux
+ans. Linux® is an open source operating system (OS). An operating system is the software that directly manages a system's hardware and resources, like CPU, memory, and storage.
+
+20. what is cloudwatch
+ans. Amazon CloudWatch is a monitoring and management service that provides data and actionable insights for AWS, hybrid, and on-premises applications and infrastructure resources.
+
+21.what is sonarqube
+ans. SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs and code smells on 29 programming languages
+
+22. what is nexus
+ans. Nexus Repository OSS is an open source repository that supports many artifact formats, including Docker, Java™, and npm. 
+
+23.what is bitbucket
+ans. BitBucket is a cloud-based service that helps developers store and manage their code, as well as track and control the changes to their code
+
+24. what is RDS
+Amazon RDS (Relational Database Service): A web service that makes it easy to set up, operate, and scale a relational database in the cloud
+
+25. what is CICD CI/CD stands for Continuous Integration and Continuous Deployment (or Continuous Delivery)
+ans.Continuous Integration (CI) is the process of frequently integrating code changes into a shared repository and automatically building and testing the code to catch errors and conflicts early on. CI helps to ensure that the code is always in a releasable state and reduces the risk of introducing errors into the codebase.
+
+Continuous Deployment (CD) is the process of automatically deploying code changes to production as soon as they are ready. CD helps to reduce the time between code changes and their deployment to production, enabling faster feedback and iteration.
+
+Continuous Delivery (CD) is a software development practice that involves automatically building, testing, and deploying code changes to production as soon as they are ready, without human intervention.
+

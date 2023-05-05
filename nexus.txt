@@ -1,0 +1,93 @@
+Prerequisites:
+
+Open JDK 8
+Minimum CPU’s: 4
+ubuntu server with sudo privileges.
+Firewall/Inbound port: 22, 8081
+
+
+
+Step 1: Update the System.
+
+apt-get update
+
+Step 2: Install java.
+
+apt install openjdk-8-jdk -y
+
+Check Java version.
+java -version
+
+Step 3: To create a system account for Nexus.
+
+useradd -M -d /opt/nexus -s /bin/bash -r nexus
+
+Provide the sudo permission to Nexus user.
+echo "nexus ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nexus
+
+Step 4: Download the Nexus.
+Change the directory.
+cd /opt
+
+Run the following command to download the nexus.
+wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+
+Extract the downloaded folder.
+tar -zxvf latest-unix.tar.gz
+
+To rename the extracted Nexus setup folder to nexus.
+mv /opt/nexus-3.37.0-01 /opt/nexus
+
+
+Provide the following permission to Nexus & sonatype-work folder.
+chown -R nexus:nexus /opt/nexus
+chown -R nexus:nexus /opt/sonatype-work
+
+
+Run nexus as service at boot time.
+vim /opt/nexus/bin/nexus.rc
+
+Uncomment & edit the following line.
+run_as_user="nexus"
+
+
+To change the nexus JVM heap size.
+Open the file.
+vim /opt/nexus/bin/nexus.vmoptions
+
+Edit the following lines:
+-Xms1024m
+-Xmx1024m
+-XX:MaxDirectMemorySize=1024m
+-XX:LogFile=./sonatype-work/nexus3/log/jvm.log
+-XX:-OmitStackTraceInFastThrow
+-Djava.net.preferIPv4Stack=true
+
+
+Step 5: To run nexus as service using Systemd.
+
+vim /etc/systemd/system/nexus.service
+
+Add the following lines:
+
+[Unit]
+Description=nexus service
+After=network.target
+[Service]
+Type=forking
+LimitNOFILE=65536
+ExecStart=/opt/nexus/bin/nexus start
+ExecStop=/opt/nexus/bin/nexus stop
+User=nexus
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
+
+To start & enable nexus servic.
+systemctl start nexus
+systemctl enable nexus
+systemctl status nexus
+
+
+Step 6: Open Nexus Repository Web Interface.
+http://server-ip:8081
